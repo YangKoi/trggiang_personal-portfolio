@@ -112,20 +112,12 @@ function doPost(e) {
     // 4. Ghi thêm dòng dữ liệu mới
     sheet.appendRow([formattedDate, name, email, message]);
     
-    // 5. Trả về phản hồi thành công (với cấu hình CORS đầy đủ)
+    // 5. Trả về phản hồi thành công (Google Apps Script tự động hỗ trợ CORS)
     return ContentService.createTextOutput(JSON.stringify({ "result": "success", "row": sheet.getLastRow() }))
-                         .setMimeType(ContentService.MimeType.JSON)
-                         .setHeaders({
-                           "Access-Control-Allow-Origin": "*",
-                           "Access-Control-Allow-Methods": "POST, GET, OPTIONS",
-                           "Access-Control-Allow-Headers": "Content-Type"
-                         });
+                         .setMimeType(ContentService.MimeType.JSON);
   } catch (error) {
     return ContentService.createTextOutput(JSON.stringify({ "result": "error", "error": error.toString() }))
-                         .setMimeType(ContentService.MimeType.JSON)
-                         .setHeaders({
-                           "Access-Control-Allow-Origin": "*"
-                         });
+                         .setMimeType(ContentService.MimeType.JSON);
   }
 }
 ```
