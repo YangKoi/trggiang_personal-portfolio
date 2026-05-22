@@ -73,6 +73,88 @@ git push -u origin main
 
 ---
 
+## 📊 Hướng dẫn Tích hợp Google Sheets để xem tin nhắn liên hệ (Giải pháp 2)
+
+Để form liên hệ ở cuối trang tự động lưu tin nhắn của khách hàng vào Google Sheet của anh, hãy làm theo các bước siêu đơn giản sau:
+
+### Bước 1: Tạo Google Sheet mới
+1. Truy cập [Google Sheets (Trang tính)](https://sheets.google.com/) và tạo một bảng tính trống mới.
+2. Đổi tên bảng tính thành một tên dễ nhớ (Ví dụ: `Liên hệ Portfolio - Trường Giang`).
+
+### Bước 2: Mở trình soạn tập lệnh Google Apps Script
+1. Tại menu trên cùng của trang Google Sheet, nhấp vào **Tiện ích mở rộng (Extensions)** -> Chọn **Apps Script**.
+2. Một giao diện lập trình web của Google sẽ hiện ra. Xóa sạch mọi mã nguồn có sẵn trong khung soạn thảo mặc định (hàm `myFunction()`).
+
+### Bước 3: Dán đoạn mã xử lý dưới đây vào Apps Script
+Hãy copy toàn bộ đoạn mã dưới đây và dán vào khung soạn thảo:
+
+```javascript
+function doPost(e) {
+  try {
+    // 1. Mở trang tính đang hoạt động
+    var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+    
+    // 2. Lấy dữ liệu gửi từ Form liên hệ
+    var name = e.parameter.name || "N/A";
+    var email = e.parameter.email || "N/A";
+    var message = e.parameter.message || "N/A";
+    var timestamp = new Date();
+    
+    // Format thời gian theo múi giờ Việt Nam (ICT)
+    var formattedDate = Utilities.formatDate(timestamp, "GMT+7", "yyyy-MM-dd HH:mm:ss");
+    
+    // 3. Nếu Sheet trống, tự động ghi tiêu đề dòng đầu tiên
+    if (sheet.getLastRow() === 0) {
+      sheet.appendRow(["Thời gian", "Họ và tên", "Email liên hệ", "Nội dung tin nhắn"]);
+      sheet.getRange(1, 1, 1, 4).setFontWeight("bold").setBackground("#e2e8f0");
+    }
+    
+    // 4. Ghi thêm dòng dữ liệu mới
+    sheet.appendRow([formattedDate, name, email, message]);
+    
+    // 5. Trả về phản hồi thành công (với cấu hình CORS đầy đủ)
+    return ContentService.createTextOutput(JSON.stringify({ "result": "success", "row": sheet.getLastRow() }))
+                         .setMimeType(ContentService.MimeType.JSON)
+                         .setHeaders({
+                           "Access-Control-Allow-Origin": "*",
+                           "Access-Control-Allow-Methods": "POST, GET, OPTIONS",
+                           "Access-Control-Allow-Headers": "Content-Type"
+                         });
+  } catch (error) {
+    return ContentService.createTextOutput(JSON.stringify({ "result": "error", "error": error.toString() }))
+                         .setMimeType(ContentService.MimeType.JSON)
+                         .setHeaders({
+                           "Access-Control-Allow-Origin": "*"
+                         });
+  }
+}
+```
+
+3. Nhấp vào biểu tượng **Lưu (Save - hình đĩa mềm)** ở thanh công cụ phía trên hoặc nhấn tổ hợp phím `Ctrl + S`.
+
+### Bước 4: Triển khai ứng dụng Web (Deploy Web App)
+1. Ở góc trên bên phải, bấm vào nút **Triển khai (Deploy)** -> Chọn **Triển khai mới (New deployment)**.
+2. Tại bảng tùy chọn hiện ra, nhấp vào biểu tượng bánh răng ở cạnh chữ *Chọn loại (Select type)* -> Chọn **Ứng dụng web (Web app)**.
+3. Điền các thông tin như sau:
+   - **Mô tả (Description)**: *Ghi chú bất kỳ (Ví dụ: Form contact)*
+   - **Thực thi dưới dạng (Execute as)**: Chọn **Tôi (Me - email của anh)**.
+   - **Ai có quyền truy cập (Who has access)**: Chọn **Mọi người (Anyone)**. *(Lưu ý: Bắt buộc chọn Anyone để website có thể gửi dữ liệu lên Google Sheet của anh)*.
+4. Bấm nút **Triển khai (Deploy)**.
+5. Google sẽ yêu cầu anh cấp quyền (Authorize Access). Hãy nhấp vào **Cấp quyền truy cập (Authorize Access)** -> Chọn tài khoản Google của anh -> Nhấp vào **Advanced (Nâng cao)** -> Chọn **Go to Untitled project (unsafe)** -> Bấm **Allow (Cho phép)**.
+6. Sau khi hoàn thành, Google sẽ hiển thị một đường link tại mục **Ứng dụng web (Web app) URL**. Hãy nhấp vào nút **Sao chép (Copy)** đường link này! Link này sẽ có dạng tương tự như:
+   `https://script.google.com/macros/s/AKfycb.../exec`
+
+### Bước 5: Cập nhật đường dẫn vào mã nguồn của anh
+1. Mở tệp `script.js` trong thư mục mã nguồn trên máy tính của anh.
+2. Tìm đến dòng số **363** (hoặc tìm chữ `const GOOGLE_SCRIPT_URL =`):
+   ```javascript
+   const GOOGLE_SCRIPT_URL = "YOUR_GOOGLE_SCRIPT_WEB_APP_URL_HERE";
+   ```
+3. Thay thế `"YOUR_GOOGLE_SCRIPT_WEB_APP_URL_HERE"` bằng đường dẫn URL anh vừa sao chép ở Bước 4.
+4. Lưu tệp lại và đẩy thay đổi lên GitHub để hoàn tất! Kể từ giây phút này, tin nhắn người dùng nhập vào biểu mẫu sẽ tự động bay thẳng vào Google Sheet của anh một cách tức thì! 🚀
+
+---
+
 ## 🎨 Hướng dẫn Thay đổi Thông tin theo ý muốn
 
 - **Thay đổi Ảnh Đại Diện**: Chỉ cần đặt tên bức ảnh chân dung cá nhân của anh là `profile_avatar.png` và ghi đè (replace) vào tệp ảnh đại diện mẫu hiện tại là trang web sẽ tự cập nhật!

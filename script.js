@@ -355,3 +355,73 @@ document.addEventListener("DOMContentLoaded", () => {
         revealObserver.observe(el);
     });
 });
+
+/* ==========================================================================
+   Google Sheets Contact Form Submission
+   ========================================================================== */
+// HƯỚNG DẪN: Anh dán link Web App của Google Apps Script nhận được vào đây:
+const GOOGLE_SCRIPT_URL = "YOUR_GOOGLE_SCRIPT_WEB_APP_URL_HERE";
+
+const contactForm = document.getElementById("contact-form");
+if (contactForm) {
+    contactForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        
+        const submitBtn = contactForm.querySelector("button[type='submit']");
+        const originalBtnText = submitBtn.innerHTML;
+        
+        // 1. Show loading state
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = currentLang === "vi" 
+            ? '<i class="fa-solid fa-spinner fa-spin"></i> Đang gửi...' 
+            : '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+            
+        const name = document.getElementById("form-name").value;
+        const email = document.getElementById("form-email").value;
+        const message = document.getElementById("form-msg").value;
+        
+        // Check if URL is configured
+        if (GOOGLE_SCRIPT_URL === "YOUR_GOOGLE_SCRIPT_WEB_APP_URL_HERE") {
+            setTimeout(() => {
+                alert(currentLang === "vi" 
+                    ? "Biểu mẫu chưa được cấu hình địa chỉ Google Sheet! Vui lòng làm theo hướng dẫn trong file README.md." 
+                    : "Google Sheets Web App URL is not configured yet! Please follow the instructions in README.md.");
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnText;
+            }, 500);
+            return;
+        }
+        
+        // 2. Prepare data
+        const formData = new URLSearchParams();
+        formData.append("name", name);
+        formData.append("email", email);
+        formData.append("message", message);
+        
+        // 3. Post to Google Apps Script
+        fetch(GOOGLE_SCRIPT_URL, {
+            method: "POST",
+            mode: "no-cors",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: formData.toString()
+        })
+        .then(() => {
+            alert(currentLang === "vi"
+                ? "Cảm ơn anh! Tin nhắn đã được lưu vào Google Sheets của anh."
+                : "Thank you! Your message has been saved to the Google Sheet.");
+            contactForm.reset();
+        })
+        .catch(err => {
+            console.error("Error submitting form:", err);
+            alert(currentLang === "vi"
+                ? "Có lỗi xảy ra khi gửi tin nhắn. Vui lòng thử lại sau."
+                : "An error occurred while sending. Please try again later.");
+        })
+        .finally(() => {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtnText;
+        });
+    });
+}
