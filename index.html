@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nguyễn Đình Trường Giang - Kỹ sư Tự động hóa & Điện | Chuyên gia giải pháp An toàn Khí tại Riken Viet. Nguyễn Đình Trường Giang - Electrical & Automation Engineer | Gas Safety Solutions Expert.">
+    <title>Nguyễn Đình Trường Giang - Portfolio</title>
+    <!-- Google Fonts: Outfit & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Premium Tech Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+    <!-- Cyber Grid Background Effect -->
+    <div class="cyber-grid"></div>
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+
+    <!-- Header Navigation -->
+    <header class="main-header">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-accent">&lt;</span>GIANG<span class="logo-accent">.DEV /&gt;</span>
+            </a>
+            
+            <nav class="nav-menu">
+                <a href="#home" class="nav-link active" data-i18n="nav_home">Trang chủ</a>
+                <a href="#about" class="nav-link" data-i18n="nav_about">Giới thiệu</a>
+                <a href="#skills" class="nav-link" data-i18n="nav_skills">Kỹ năng</a>
+                <a href="#experience" class="nav-link" data-i18n="nav_experience">Kinh nghiệm</a>
+                <a href="#projects" class="nav-link" data-i18n="nav_projects">Dự án</a>
+                <a href="#contact" class="nav-link" data-i18n="nav_contact">Liên hệ</a>
+            </nav>
+
+            <!-- Bilingual Language Switcher -->
+            <div class="lang-switch-container">
+                <button class="lang-btn active" id="lang-vi" onclick="setLanguage('vi')">VI</button>
+                <button class="lang-btn" id="lang-en" onclick="setLanguage('en')">EN</button>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button class="mobile-toggle" aria-label="Toggle Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-nav">
+        <a href="#home" class="mobile-link" data-i18n="nav_home">Trang chủ</a>
+        <a href="#about" class="mobile-link" data-i18n="nav_about">Giới thiệu</a>
+        <a href="#skills" class="mobile-link" data-i18n="nav_skills">Kỹ năng</a>
+        <a href="#experience" class="mobile-link" data-i18n="nav_experience">Kinh nghiệm</a>
+        <a href="#projects" class="mobile-link" data-i18n="nav_projects">Dự án</a>
+        <a href="#contact" class="mobile-link" data-i18n="nav_contact">Liên hệ</a>
+    </div>
+
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="container hero-container">
+                <div class="hero-text-content">
+                    <div class="tagline-badge">
+                        <span class="pulse-dot"></span>
+                        <span data-i18n="hero_badge">Sẵn sàng hợp tác & Đột phá</span>
+                    </div>
+                    <h1 class="hero-name">Nguyễn Đình Trường Giang</h1>
+                    <h2 class="hero-title" id="typed-text">Technician at RIKEN VIET</h2>
+                    <p class="hero-desc" data-i18n="hero_short_desc">
+                        Kỹ sư Điện & Tự động hóa nhiệt huyết, Chuyên gia giải pháp An toàn Khí tại Riken Viet.
+                        Tập trung vào phát triển giải pháp tối ưu hóa an toàn lao động và tự động hóa công nghiệp.
+                    </p>
+                    
+                    <div class="hero-contact-quick">
+                        <a href="mailto:trggiangiot@gmail.com" class="quick-info-item">
+                            <i class="fa-solid fa-envelope text-cyan"></i>
+                            <span>trggiangiot@gmail.com</span>
+                        </a>
+                        <a href="tel:0868784293" class="quick-info-item">
+                            <i class="fa-solid fa-phone text-cyan"></i>
+                            <span>0868784293</span>
+                        </a>
+                    </div>
+
+                    <div class="hero-actions">
+                        <a href="#contact" class="btn btn-primary" data-i18n="hero_btn_contact">
+                            <i class="fa-solid fa-paper-plane"></i> Liên hệ ngay
+                        </a>
+                        <a href="#projects" class="btn btn-outline" data-i18n="hero_btn_projects">
+                            <i class="fa-solid fa-briefcase"></i> Xem dự án
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hero-image-content">
+                    <div class="avatar-glow-ring"></div>
+                    <div class="avatar-card">
+                        <img src="profile_avatar.png" alt="Nguyễn Đình Trường Giang Avatar" class="profile-img">
+                        <div class="info-badge badge-1">
+                            <i class="fa-solid fa-bolt"></i>
+                            <div>
+                                <span class="badge-title">Automation</span>
+                                <span class="badge-subtitle">PLC & AutoCAD</span>
+                            </div>
+                        </div>
+                        <div class="info-badge badge-2">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            <div>
+                                <span class="badge-title">Gas Safety</span>
+                                <span class="badge-subtitle">Riken Viet Expert</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-down-indicator">
+                <a href="#about" aria-label="Scroll Down">
+                    <i class="fa-solid fa-chevron-down"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section scroll-reveal">
+            <div class="container">
+                <div class="section-header">
+                    <span class="sub-title" data-i18n="about_subtitle">VỀ TÔI</span>
+                    <h2 class="section-title" data-i18n="about_title">Câu chuyện nghề nghiệp</h2>
+                    <div class="title-line"></div>
+                </div>
+
+                <div class="about-grid">
+                    <div class="about-bio-card">
+                        <div class="bio-icon-header">
+                            <i class="fa-solid fa-quote-left"></i>
+                        </div>
+                        <p class="bio-text" data-i18n="about_bio_text">
+                            Tôi là một chuyên gia kỹ thuật chuyên sâu về Hệ thống phát hiện khí độc, khí cháy nổ và Tự động hóa công nghiệp, hiện đang chịu trách nhiệm kỹ thuật và vận hành tại Riken Viet. Với nền tảng kiến thức vững chắc trải rộng từ lập trình PLC, thiết kế bản vẽ AutoCAD Electrical đến lập trình phần mềm điều khiển bằng Python và C, tôi tập trung vào việc đem lại các giải pháp an toàn tối ưu nhất cho các lĩnh vực công nghiệp. Tôi luôn đam mê ứng dụng công nghệ hiện đại và công nghệ trí tuệ nhân tạo (AI) để nâng cao tiêu chuẩn an toàn lao động và hiệu quả vận hành tại Việt Nam.
+                        </p>
+                        
+                        <div class="bio-highlights">
+                            <div class="highlight-item">
+                                <span class="highlight-num">3+</span>
+                                <span class="highlight-label" data-i18n="about_label_exp">Năm kinh nghiệm</span>
+                            </div>
+                            <div class="highlight-item">
+                                <span class="highlight-num">20+</span>
+                                <span class="highlight-label" data-i18n="about_label_projects">Dự án hoàn thành</span>
+                            </div>
+                            <div class="highlight-item">
+                                <span class="highlight-num">100%</span>
+                                <span class="highlight-label" data-i18n="about_label_safety">Chuẩn an toàn khí</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-details-card">
+                        <h3 class="card-subtitle" data-i18n="about_details_title">Thông tin chi tiết</h3>
+                        <ul class="details-list">
+                            <li>
+                                <span class="detail-name" data-i18n="detail_name">Họ và tên</span>
+                                <span class="detail-value">Nguyễn Đình Trường Giang</span>
+                            </li>
+                            <li>
+                                <span class="detail-name" data-i18n="detail_role">Chức danh hiện tại</span>
+                                <span class="detail-value" data-i18n="detail_role_val">Kỹ sư Tự động hóa | Chuyên gia An toàn Khí</span>
+                            </li>
+                            <li>
+                                <span class="detail-name" data-i18n="detail_company">Đơn vị công tác</span>
+                                <span class="detail-value">RIKEN VIET CO., LTD</span>
+                            </li>
+                            <li>
+                                <span class="detail-name" data-i18n="detail_phone">Số điện thoại</span>
+                                <span class="detail-value"><a href="tel:0868784293" class="text-link">0868784293</a></span>
+                            </li>
+                            <li>
+                                <span class="detail-name" data-i18n="detail_email">Email liên hệ</span>
+                                <span class="detail-value"><a href="mailto:trggiangiot@gmail.com" class="text-link">trggiangiot@gmail.com</a></span>
+                            </li>
+                            <li>
+                                <span class="detail-name" data-i18n="detail_edu">Học vấn tốt nghiệp</span>
+                                <span class="detail-value">Đại học Công thương TP.HCM (HUIT)</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="skills-section scroll-reveal">
+            <div class="container">
+                <div class="section-header">
+                    <span class="sub-title" data-i18n="skills_subtitle">KỸ NĂNG</span>
+                    <h2 class="section-title" data-i18n="skills_title">Năng lực Chuyên môn & Kỹ thuật</h2>
+                    <div class="title-line"></div>
+                </div>
+
+                <div class="skills-grid">
+                    <!-- Category 1: Automation & Design -->
+                    <div class="skills-category-card">
+                        <div class="category-header">
+                            <div class="category-icon-bg bg-cyan">
+                                <i class="fa-solid fa-microchip"></i>
+                            </div>
+                            <h3 class="category-title" data-i18n="skills_cat_automation">Điện & Tự động hóa</h3>
+                        </div>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Gas Detection (Hệ thống dò khí)</span>
+                                    <span class="skill-percent">95%</span>
+                                </div>
+                                <div class="skill-bar-outer">
+                                    <div class="skill-bar-inner" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">PLC Programming (Lập trình PLC)</span>
+                                    <span class="skill-percent">90%</span>
+                                </div>
+                                <div class="skill-bar-outer">
+                                    <div class="skill-bar-inner" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">AutoCAD Electrical</span>
+                                    <span class="skill-percent">88%</span>
+                                </div>
+                                <div class="skill-bar-outer">
+                                    <div class="skill-bar-inner" style="width: 88%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">AutoCAD (2D & 3D Drafting)</span>
+                                    <span class="skill-percent">85%</span>
+                                </div>
+                                <div class="skill-bar-outer">
+                                    <div class="skill-bar-inner" style="width: 85%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Category 2: Programming & Software -->
+                    <div class="skills-category-card">
+                        <div class="category-header">
+                            <div class="category-icon-bg bg-blue">
+                                <i class="fa-solid fa-code"></i>
+                            </div>
+                            <h3 class="category-title" data-i18n="skills_cat_software">Lập trình & Công nghệ</h3>
+                        </div>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Python (Programming)</span>
+                                    <span class="skill-percent">80%</span>
+                                </div>
+                                <div class="skill-bar-outer">
+                                    <div class="skill-bar-inner" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">C (Embedded / Low-level)</span>
+                                    <span class="skill-percent">75%</span>
+                                </div>
+                                <div class="skill-bar-outer">
+                                    <div class="skill-bar-inner" style="width: 75%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name" data-i18n="skill_ai">Ứng dụng & Sử dụng trí tuệ nhân tạo (AI Tools)</span>
+                                    <span class="skill-percent">90%</span>
+                                </div>
+                                <div class="skill-bar-outer">
+                                    <div class="skill-bar-inner" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Microsoft Office (Word, Excel, PPT)</span>
+                                    <span class="skill-percent">85%</span>
+                                </div>
+                                <div class="skill-bar-outer">
+                                    <div class="skill-bar-inner" style="width: 85%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Category 3: Engineering Operations -->
+                    <div class="skills-category-card">
+                        <div class="category-header">
+                            <div class="category-icon-bg bg-purple">
+                                <i class="fa-solid fa-screwdriver-wrench"></i>
+                            </div>
+                            <h3 class="category-title" data-i18n="skills_cat_operation">Vận hành & Kỹ thuật Hiện trường</h3>
+                        </div>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name" data-i18n="skill_repair">Equipment Repair (Sửa chữa thiết bị)</span>
+                                    <span class="skill-percent">90%</span>
+                                </div>
+                                <div class="skill-bar-outer">
+                                    <div class="skill-bar-inner" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name" data-i18n="skill_maintenance">Technical Maintenance (Bảo trì kỹ thuật)</span>
+                                    <span class="skill-percent">92%</span>
+                                </div>
+                                <div class="skill-bar-outer">
+                                    <div class="skill-bar-inner" style="width: 92%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name" data-i18n="skill_mfg">Manufacturing Techniques (Kỹ thuật sản xuất)</span>
+                                    <span class="skill-percent">80%</span>
+                                </div>
+                                <div class="skill-bar-outer">
+                                    <div class="skill-bar-inner" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name" data-i18n="skill_pm">Project Management (Quản lý dự án)</span>
+                                    <span class="skill-percent">82%</span>
+                                </div>
+                                <div class="skill-bar-outer">
+                                    <div class="skill-bar-inner" style="width: 82%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience & Education (Timeline) Section -->
+        <section id="experience" class="timeline-section scroll-reveal">
+            <div class="container">
+                <div class="section-header">
+                    <span class="sub-title" data-i18n="timeline_subtitle">QUÁ TRÌNH</span>
+                    <h2 class="section-title" data-i18n="timeline_title">Kinh nghiệm & Học vấn</h2>
+                    <div class="title-line"></div>
+                </div>
+
+                <div class="timeline-container">
+                    <!-- Timeline Item 1 (Experience) -->
+                    <div class="timeline-item left">
+                        <div class="timeline-icon">
+                            <i class="fa-solid fa-briefcase"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-tag tag-exp" data-i18n="timeline_tag_exp">KINH NGHIỆM</div>
+                            <span class="timeline-date" data-i18n="timeline_date_riken">Hiện tại (Từ 2023)</span>
+                            <h3 class="timeline-title">Technician & Operations Lead</h3>
+                            <h4 class="timeline-company">RIKEN VIET CO., LTD</h4>
+                            <p class="timeline-desc" data-i18n="timeline_desc_riken">
+                                Phụ trách chính các hoạt động kỹ thuật, thiết kế và lắp đặt hệ thống cảnh báo và dò tìm khí gas công nghiệp. Lập trình vi điều khiển và lập trình PLC điều khiển các quy trình tự động hóa. Vận hành, bảo dưỡng định kỳ và trực tiếp sửa chữa các thiết bị đo kiểm khí an toàn cao cho các nhà xưởng, khu chế xuất lớn tại Việt Nam.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 2 (Education) -->
+                    <div class="timeline-item right">
+                        <div class="timeline-icon">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-tag tag-edu" data-i18n="timeline_tag_edu">HỌC VẤN</div>
+                            <span class="timeline-date" data-i18n="timeline_date_huit">Tốt nghiệp</span>
+                            <h3 class="timeline-title" data-i18n="timeline_title_huit">Kỹ sư Điện & Tự động hóa</h3>
+                            <h4 class="timeline-company">Trường Đại học Công thương TP.HCM (HUIT)</h4>
+                            <p class="timeline-desc" data-i18n="timeline_desc_huit">
+                                Đào tạo chuyên sâu về Lý thuyết điều khiển tự động, Lập trình PLC điều khiển công nghiệp, Thiết kế mạch điện AutoCAD Electrical, Các kỹ thuật sản xuất hiện đại và Thực hành sửa chữa bảo trì hệ thống cơ điện. Đóng vai trò là trưởng nhóm nghiên cứu trong nhiều dự án mô phỏng tự động hóa cấp khoa.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects-section scroll-reveal">
+            <div class="container">
+                <div class="section-header">
+                    <span class="sub-title" data-i18n="projects_subtitle">DỰ ÁN</span>
+                    <h2 class="section-title" data-i18n="projects_title">Sản phẩm kỹ thuật tiêu biểu</h2>
+                    <div class="title-line"></div>
+                </div>
+
+                <!-- Projects Grid -->
+                <div class="projects-grid">
+                    <!-- Project 1 -->
+                    <div class="project-card">
+                        <div class="project-img-wrapper">
+                            <div class="project-glow"></div>
+                            <div class="project-icon-placeholder">
+                                <i class="fa-solid fa-shield-halved"></i>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <span class="project-tag" data-i18n="project_tag_riken">Riken Viet</span>
+                            <h3 class="project-name" data-i18n="proj1_title">Hệ thống dò khí Gas tập trung cao cấp</h3>
+                            <p class="project-desc" data-i18n="proj1_desc">
+                                Thiết kế bản vẽ tủ điều khiển AutoCAD Electrical, lập trình kết nối PLC và hệ thống cảm biến dò khí Gas/Oxy công nghiệp Riken Keiki. Đảm bảo cảnh báo an toàn tức thời cho nhà máy chế biến.
+                            </p>
+                            <div class="project-tech-stack">
+                                <span>PLC</span>
+                                <span>AutoCAD Electrical</span>
+                                <span>Gas Safety</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project-card">
+                        <div class="project-img-wrapper">
+                            <div class="project-glow"></div>
+                            <div class="project-icon-placeholder">
+                                <i class="fa-solid fa-robot"></i>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <span class="project-tag" data-i18n="project_tag_rnd">Nghiên cứu & Phát triển</span>
+                            <h3 class="project-name" data-i18n="proj2_title">Lập trình Điều khiển Giám sát SCADA</h3>
+                            <p class="project-desc" data-i18n="proj2_desc">
+                                Viết phần mềm giám sát trạng thái khí độc hại thời gian thực bằng Python tích hợp giải pháp AI chuẩn đoán sớm lỗi của cảm biến đo lường, giao tiếp qua giao thức Modbus RTU/TCP.
+                            </p>
+                            <div class="project-tech-stack">
+                                <span>Python</span>
+                                <span>Modbus</span>
+                                <span>AI Tools</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="project-card">
+                        <div class="project-img-wrapper">
+                            <div class="project-glow"></div>
+                            <div class="project-icon-placeholder">
+                                <i class="fa-solid fa-screwdriver-wrench"></i>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <span class="project-tag" data-i18n="project_tag_maintenance">Bảo trì & Vận hành</span>
+                            <h3 class="project-name" data-i18n="proj3_title">Quy trình Bảo trì Cảm biến Khí chuẩn Riken</h3>
+                            <p class="project-desc" data-i18n="proj3_desc">
+                                Chuẩn hóa quy trình hiệu chuẩn máy dò khí cầm tay và cố định của hãng Riken Keiki Nhật Bản. Nâng cao tỷ lệ sẵn sàng thiết bị lên 99.8% và giảm thời gian chết bảo dưỡng.
+                            </p>
+                            <div class="project-tech-stack">
+                                <span>Calibration</span>
+                                <span>Gas Detection</span>
+                                <span>Operations</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section scroll-reveal">
+            <div class="container">
+                <div class="section-header">
+                    <span class="sub-title" data-i18n="contact_subtitle">LIÊN HỆ</span>
+                    <h2 class="section-title" data-i18n="contact_title">Khởi động cơ hội mới</h2>
+                    <div class="title-line"></div>
+                </div>
+
+                <div class="contact-wrapper">
+                    <!-- Contact Cards -->
+                    <div class="contact-info-cards">
+                        <!-- Phone -->
+                        <a href="tel:0868784293" class="contact-card-item">
+                            <div class="contact-icon bg-cyan">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div class="contact-card-text">
+                                <span class="card-label" data-i18n="contact_call">Điện thoại di động</span>
+                                <span class="card-value">0868784293</span>
+                            </div>
+                            <i class="fa-solid fa-arrow-right card-arrow"></i>
+                        </a>
+
+                        <!-- Email -->
+                        <a href="mailto:trggiangiot@gmail.com" class="contact-card-item">
+                            <div class="contact-icon bg-blue">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div class="contact-card-text">
+                                <span class="card-label">Email trực tiếp</span>
+                                <span class="card-value">trggiangiot@gmail.com</span>
+                            </div>
+                            <i class="fa-solid fa-arrow-right card-arrow"></i>
+                        </a>
+
+                        <!-- Address -->
+                        <div class="contact-card-item no-hover">
+                            <div class="contact-icon bg-purple">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div class="contact-card-text">
+                                <span class="card-label" data-i18n="contact_addr">Nơi làm việc hiện tại</span>
+                                <span class="card-value">Ho Chi Minh City, Vietnam</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="contact-form-container">
+                        <form class="contact-form" onsubmit="event.preventDefault(); alert('Xin cảm ơn! Tin nhắn đã được mô phỏng gửi thành công.');">
+                            <h3 class="form-title" data-i18n="form_title">Gửi tin nhắn trực tuyến</h3>
+                            <div class="input-group">
+                                <input type="text" id="form-name" required placeholder=" ">
+                                <label for="form-name" data-i18n="form_name">Họ và tên của bạn</label>
+                            </div>
+                            <div class="input-group">
+                                <input type="email" id="form-email" required placeholder=" ">
+                                <label for="form-email">Email</label>
+                            </div>
+                            <div class="input-group">
+                                <textarea id="form-msg" required placeholder=" " rows="4"></textarea>
+                                <label for="form-msg" data-i18n="form_msg">Nội dung tin nhắn</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block" data-i18n="form_submit">
+                                <i class="fa-solid fa-paper-plane"></i> Gửi thông tin liên lạc
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container footer-container">
+            <p class="copyright">
+                &copy; 2026 Nguyễn Đình Trường Giang. Built with <i class="fa-solid fa-heart text-red"></i> & AI tools.
+            </p>
+            <div class="footer-links">
+                <a href="#home" data-i18n="nav_home">Trang chủ</a>
+                <a href="#about" data-i18n="nav_about">Giới thiệu</a>
+                <a href="#skills" data-i18n="nav_skills">Kỹ năng</a>
+                <a href="#contact" data-i18n="nav_contact">Liên hệ</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Main Logic Script -->
+    <script src="script.js"></script>
+</body>
+</html>
