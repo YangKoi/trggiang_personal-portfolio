@@ -360,7 +360,7 @@ document.addEventListener("DOMContentLoaded", () => {
    Google Sheets Contact Form Submission
    ========================================================================== */
 // HƯỚNG DẪN: Anh dán link Web App của Google Apps Script nhận được vào đây:
-const GOOGLE_SCRIPT_URL = https://script.google.com/macros/s/AKfycbwPz51I3F1wwYtpsLudqfp-3vM1BQETHaId7Kw3E83xW7rSkV0ZQCIjQSowNTawgTnu/exec;
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwPz51I3F1wwYtpsLudqfp-3vM1BQETHaId7Kw3E83xW7rSkV0ZQCIjQSowNTawgTnu/exec";
 
 const contactForm = document.getElementById("contact-form");
 if (contactForm) {
