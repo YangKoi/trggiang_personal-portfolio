@@ -409,8 +409,8 @@ if (contactForm) {
         })
         .then(() => {
             alert(currentLang === "vi"
-                ? "Cảm ơn anh! Tin nhắn đã được lưu vào Google Sheets của anh."
-                : "Thank you! Your message has been saved to the Google Sheet.");
+                ? "Cảm ơn bạn đã để lại thông tin, tôi sẽ liên hệ lại sớm."
+                : "Thank you for leaving your information, I will get back to you soon.");
             contactForm.reset();
         })
         .catch(err => {
